@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Smooth theme transitions across the entire application */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition: background-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
+              color 250ms cubic-bezier(0.16, 1, 0.3, 1),
+              fill 250ms cubic-bezier(0.16, 1, 0.3, 1),
+              stroke 250ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition-delay: 0s !important;
+}
+
+/* Base smooth transition on document body */
+body {
+  transition: background-color 250ms ease, color 250ms ease;
+}
+
+/* Ensure recharts surface animations are not overridden */
+.recharts-surface {
+  transition: none !important;
+}
